@@ -11,7 +11,7 @@ app = fastapi.FastAPI()
 def calculate():
     return {
         "message":"Hello World",
-        "status":"OK"
+        "status":"OK 404"
     }
 
 @app.get("/math1/{nterms}")
