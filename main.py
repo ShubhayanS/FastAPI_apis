@@ -9,10 +9,7 @@ app = fastapi.FastAPI()
 
 @app.get("/")
 def calculate():
-    return {
-        "message":"Hello World",
-        "status":"OK 404"
-    }
+    return {"msg": "Hello World"}
 
 @app.get("/math1/{nterms}")
 def calculate(nterms:int):
@@ -21,25 +18,21 @@ def calculate(nterms:int):
     count = 0
     list=[]
     status=""
-    # check if the number of terms is valid
-    if nterms <= 0:
-        status="Error, Negative not allowed"
-    elif nterms == 1:
-        status="OK"
-        list.append(n1)
+    if(nterms<0):
+        status="Error, Negative Number"
     else:
+        for i in range(nterms):
+            list.append(Fibonnacci(i))
         status="OK"
-        while count < nterms:
-            list.append(n1)
-            nth = n1 + n2
-            # update values
-            n1 = n2 
-            n2 = nth
-            count += 1
     return {
         "status":status,
         "febonacci":list
     }
+def Fibonnacci(n):
+    if(n<=1):
+        return n
+    else:
+        return Fibonnacci(n-1)+Fibonnacci(n-2)
 
 
 @app.get("/math2/{nterms}")
