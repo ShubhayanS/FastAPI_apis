@@ -16,23 +16,25 @@ def calculate(nterms:int):
     # first two terms
     n1, n2 = 0, 1
     count = 0
-    list=[]
+    f=0
     status=""
     if(nterms<0):
         status="Error, Negative Number"
     else:
-        for i in range(nterms):
-            list.append(Fibonnacci(i))
+        f=Fibonacci(nterms)
         status="OK"
     return {
         "status":status,
-        "febonacci":list
+        "febonacci":f
     }
-def Fibonnacci(n):
-    if(n<=1):
-        return n
+def Fibonacci(n):
+    if n==1:
+        return 0
+    # Second Fibonacci number is 1
+    elif n==2:
+        return 1
     else:
-        return Fibonnacci(n-1)+Fibonnacci(n-2)
+        return Fibonacci(n-1)+Fibonacci(n-2)
 
 
 @app.get("/math2/{nterms}")

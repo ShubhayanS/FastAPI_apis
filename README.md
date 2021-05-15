@@ -18,7 +18,7 @@ String Module
 ```
 
 
-#Steps to run the API
+## Steps to run the API
 
 1) Firstly, ensure you have Python3 installed on your system and then in CMD - ```pip install -r requirements.txt```
 2) Start the server with ```uvicorn main:app --reload```
